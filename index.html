@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citas Médicas</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        input, select, button {
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+        }
+        button {
+            background: #2ecc71;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Agendar Cita</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="date" id="fecha">
+
+    <select id="doctor">
+        <option>General</option>
+        <option>Pediatra</option>
+        <option>Cardiólogo</option>
+    </select>
+
+    <button onclick="agendar()">Agendar</button>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+function agendar() {
+    let nombre = document.getElementById("nombre").value;
+    let fecha = document.getElementById("fecha").value;
+    let doctor = document.getElementById("doctor").value;
+
+    if(nombre === "" || fecha === "") {
+        document.getElementById("resultado").innerHTML = "⚠ Completa los campos";
+    } else {
+        document.getElementById("resultado").innerHTML =
+            "✅ Cita para " + nombre + " con " + doctor + " el " + fecha;
+    }
+}
+</script>
+
+</body>
+</html>
